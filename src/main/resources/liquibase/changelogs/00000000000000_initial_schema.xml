@@ -1,0 +1,590 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-1">
+        <createTable tableName="business_unit">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="business_unit_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-2">
+        <createTable tableName="cost_center">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="cost_center_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-3">
+        <createTable tableName="country">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="country_pkey"/>
+            </column>
+            <column name="iso2" type="VARCHAR(255)"/>
+            <column name="iso3" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="num_code" type="INTEGER"/>
+            <column name="phone_code" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-4">
+        <createTable tableName="email">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="email_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="TEXT"/>
+            <column name="subject" type="VARCHAR(255)"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-5">
+        <createTable tableName="email_template">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="email_template_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="OID"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-6">
+        <createTable tableName="employee_business_unit_history">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employee_business_unit_history_pkey"/>
+            </column>
+            <column name="end_date" type="date"/>
+            <column name="start_date" type="date"/>
+            <column name="employee_id" type="BIGINT"/>
+            <column name="business_unit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-7">
+        <createTable tableName="employee_cost_center_history">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employee_cost_center_history_pkey"/>
+            </column>
+            <column name="end_date" type="date"/>
+            <column name="start_date" type="date"/>
+            <column name="employee_id" type="BIGINT"/>
+            <column name="cost_center_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-8">
+        <createTable tableName="employee_employee_history">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employee_employee_history_pkey"/>
+            </column>
+            <column name="end_date" type="date"/>
+            <column name="start_date" type="date"/>
+            <column name="relation_type" type="INTEGER"/>
+            <column name="employee_id" type="BIGINT"/>
+            <column name="ref_employee_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-9">
+        <createTable tableName="employee">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employee_pkey"/>
+            </column>
+            <column name="birth_date" type="date"/>
+            <column name="company_mobile_phone" type="VARCHAR(255)"/>
+            <column name="company_phone" type="VARCHAR(255)"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="date_of_leave" type="date"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="end_date" type="date"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="gender" type="INTEGER"/>
+            <column name="international_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="pdm_id" type="BIGINT"/>
+            <column name="start_date" type="date"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="update_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="business_unit_id" type="BIGINT"/>
+            <column name="cost_center_id" type="BIGINT"/>
+            <column name="dotted_line_manager_id" type="BIGINT"/>
+            <column name="hr_reference_id" type="BIGINT"/>
+            <column name="management_group_id" type="BIGINT"/>
+            <column name="nationality_id" type="BIGINT"/>
+            <column name="office_id" type="BIGINT"/>
+            <column name="solid_line_manager_id" type="BIGINT"/>
+            <column name="working_position_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-10">
+        <createTable tableName="employee_working_group_history">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employee_working_group_history_pkey"/>
+            </column>
+            <column name="end_date" type="date"/>
+            <column name="start_date" type="date"/>
+            <column name="employee_id" type="BIGINT"/>
+            <column name="management_group_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-11">
+        <createTable tableName="employee_working_position_history">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="employee_working_position_history_pkey"/>
+            </column>
+            <column name="end_date" type="date"/>
+            <column name="start_date" type="date"/>
+            <column name="employee_id" type="BIGINT"/>
+            <column name="working_position_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-12">
+        <createTable tableName="management_group">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="management_group_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-13">
+        <createTable tableName="member">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="member_pkey"/>
+            </column>
+            <column name="offboard_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="onboard_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="employee_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-14">
+        <createTable tableName="member_group">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="member_group_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by_id" type="BIGINT"/>
+            <column name="group_id" type="BIGINT"/>
+            <column name="member_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-15">
+        <createTable tableName="practice">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="practice_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="OID"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-16">
+        <createTable tableName="practice_tags">
+            <column name="practice_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="practice_tags_pkey"/>
+            </column>
+            <column name="tag_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="practice_tags_pkey"/>
+            </column>
+            <column name="rate_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-17">
+        <createTable tableName="group">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="group_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-18">
+        <createTable tableName="email_recipient">
+            <column name="email_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recipient_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-19">
+        <createTable tableName="rate">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rate_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="VARCHAR(255)"/>
+            <column name="rate" type="INTEGER"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-20">
+        <createTable tableName="notification">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="notification_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-21">
+        <createTable tableName="learning_roadmap">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="learning_roadmap_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-22">
+        <createTable tableName="learning_subscription">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="learning_subscription_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by_id" type="BIGINT"/>
+            <column name="learning_road_map_id" type="BIGINT"/>
+            <column name="subscriber_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-23">
+        <createTable tableName="role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="role_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-24">
+        <createTable tableName="office">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="office_pkey"/>
+            </column>
+            <column name="end_date" type="date"/>
+            <column name="start_date" type="date"/>
+            <column name="country" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-25">
+        <createTable tableName="scheduled_training">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="scheduled_training_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="completed_on" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="deadline" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by_id" type="BIGINT"/>
+            <column name="member_id" type="BIGINT"/>
+            <column name="training_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-26">
+        <createTable tableName="learning_roadmap_trainings">
+            <column name="roadmap_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="learning_roadmap_trainings_pkey"/>
+            </column>
+            <column name="training_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="step" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="learning_roadmap_trainings_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-27">
+        <createTable tableName="training">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="training_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="OID"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-28">
+        <createTable tableName="member_roles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="member_roles_pkey"/>
+            </column>
+            <column name="end_date" type="date"/>
+            <column name="start_date" type="date"/>
+            <column name="member_id" type="BIGINT"/>
+            <column name="role_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-29">
+        <createTable tableName="working_position">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="working_position_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-30">
+        <createTable tableName="tag">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="tag_pkey"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="created_by_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-31">
+        <createTable tableName="notification_recipient">
+            <column name="notification_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="recipient_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-32">
+        <addForeignKeyConstraint baseColumnNames="business_unit_id" baseTableName="employee_business_unit_history" constraintName="fkm58r7ob9mxvotn5m3olfiplte" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="business_unit" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-33">
+        <addForeignKeyConstraint baseColumnNames="business_unit_id" baseTableName="employee" constraintName="fkp4vahj8g9cybb87r69rcqv2k7" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="business_unit" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-34">
+        <addForeignKeyConstraint baseColumnNames="cost_center_id" baseTableName="employee_cost_center_history" constraintName="fka0ull1sbcqb8u729a3j11h964" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="cost_center" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-35">
+        <addForeignKeyConstraint baseColumnNames="cost_center_id" baseTableName="employee" constraintName="fkb8o64tbj1yboy7s34v8wqchfi" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="cost_center" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-36">
+        <addForeignKeyConstraint baseColumnNames="nationality_id" baseTableName="employee" constraintName="fk3kmmuschwh9bdhclx3qqs2bnn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="country" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-37">
+        <addForeignKeyConstraint baseColumnNames="country" baseTableName="office" constraintName="fkaw8d3sndhj0i35qy5hdg8r470" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="country" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-38">
+        <addForeignKeyConstraint baseColumnNames="email_id" baseTableName="email_recipient" constraintName="fklbo3bf6r519cwacv2qyo4mu88" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="email" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-39">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="member" constraintName="fk7u6tjhx5m1fx98ks4w5tuipq1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-40">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee_working_position_history" constraintName="fk8vm8q94oy5tuy6pb8fw8jv3nt" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-41">
+        <addForeignKeyConstraint baseColumnNames="hr_reference_id" baseTableName="employee" constraintName="fkd8kd2vc83421kknmo1e9dao9y" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-42">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee_working_group_history" constraintName="fke6ysj1rhv48k8skec6f7x7r4c" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-43">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee_cost_center_history" constraintName="fkgpjo4tgt99m6ciidx8hf5b76g" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-44">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee_business_unit_history" constraintName="fkkfe78s55y7aej7ufn23prx2vf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-45">
+        <addForeignKeyConstraint baseColumnNames="dotted_line_manager_id" baseTableName="employee" constraintName="fklqygfa666w5om41snwqigp6tt" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-46">
+        <addForeignKeyConstraint baseColumnNames="solid_line_manager_id" baseTableName="employee" constraintName="fkmhvom9r98bsrqrhwib6q8dya7" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-47">
+        <addForeignKeyConstraint baseColumnNames="ref_employee_id" baseTableName="employee_employee_history" constraintName="fko9psvok22dmxhrjvgom4jufqf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-48">
+        <addForeignKeyConstraint baseColumnNames="employee_id" baseTableName="employee_employee_history" constraintName="fkpaixb0hm51m4e2th7idvgp21l" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-49">
+        <addUniqueConstraint columnNames="employee_id" constraintName="uk_4rebv7u7h123c0kvaq3jv89ym" tableName="member"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-50">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="member_group" constraintName="fk1d55qbjdu2lx2sl19c1nf3dn6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-51">
+        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="member_group" constraintName="fk4fgg228gsggmolmxtwmdb7bry" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-52">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="practice" constraintName="fkrqkf1dhybmof5dd5ln2dqd7n8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-53">
+        <addForeignKeyConstraint baseColumnNames="practice_id" baseTableName="practice_tags" constraintName="fk2jsd5r588wyx6ayh12nb0tu5t" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="practice" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-54">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="group" constraintName="fk2muunx7yagr4ln1s2yodtv2ly" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-55">
+        <addForeignKeyConstraint baseColumnNames="recipient_id" baseTableName="email_recipient" constraintName="fk6lyn0kiinqvuwv2blru3i3r8h" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-56">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="rate" constraintName="fks3uy3y734l721wycm2u32aoft" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-57">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="notification" constraintName="fk8ahyrgl012hdw1b37k5jiyo6i" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-58">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="learning_roadmap" constraintName="fk9nrt51mledgjqaoji12by6hg3" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-59">
+        <addForeignKeyConstraint baseColumnNames="learning_road_map_id" baseTableName="learning_subscription" constraintName="fk8i8livm2vyysqy7q3u1bsd923" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="learning_roadmap" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-60">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="learning_subscription" constraintName="fkj5tpcxyhu5mb1xublwy0osme5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-61">
+        <addForeignKeyConstraint baseColumnNames="subscriber_id" baseTableName="learning_subscription" constraintName="fkj993k2dngjc2bfj41jfek11wn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-62">
+        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="scheduled_training" constraintName="fkc6f3hvhohtux1yykaes9fw4en" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-63">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="scheduled_training" constraintName="fkjfsgbvlvuix21iwf6ja71cey3" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-64">
+        <addForeignKeyConstraint baseColumnNames="roadmap_id" baseTableName="learning_roadmap_trainings" constraintName="fkgsfr9rx1hcd6dnl6a4sts9ag0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="learning_roadmap" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-65">
+        <addUniqueConstraint columnNames="training_id" constraintName="uk_rdgp4kx0hs4xyvd2yq9qa2gr5" tableName="learning_roadmap_trainings"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-66">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="training" constraintName="fke3spcg2eu6y1caae2ivufwu4w" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-67">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="member_roles" constraintName="fke6spxgtlq85rqqqnbaxvqimdk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-68">
+        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="member_roles" constraintName="fkies3e6qexv81ygw2asibdhftl" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-69">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="tag" constraintName="fknsm1s9c4fnwfbdxhffx66bvet" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-70">
+        <addForeignKeyConstraint baseColumnNames="notification_id" baseTableName="notification_recipient" constraintName="fksb691ohcapb481gtapcm6humu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="notification" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-71">
+        <addForeignKeyConstraint baseColumnNames="recipient_id" baseTableName="notification_recipient" constraintName="fktkgk3f63t6u7w5t7a60d6x0xm" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-72">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="email" constraintName="fkact0si64w8fo540rjrfg58kfc" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-73">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="email_template" constraintName="fk3avk0i6esa9ut2x85f78jm2br" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="member" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-74">
+        <addForeignKeyConstraint baseColumnNames="management_group_id" baseTableName="employee" constraintName="fk1d2fq2opij674uxm58ju1u9ov" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="management_group" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-75">
+        <addForeignKeyConstraint baseColumnNames="office_id" baseTableName="employee" constraintName="fkjurhambl7fs34cp8i36xpd5yp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="office" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-76">
+        <addForeignKeyConstraint baseColumnNames="working_position_id" baseTableName="employee" constraintName="fkkbw8ouyy968ifwvlbvqm36kcw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="working_position" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-77">
+        <addForeignKeyConstraint baseColumnNames="management_group_id" baseTableName="employee_working_group_history" constraintName="fk10bbwkoqgtvskce4rjhp51fc5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="management_group" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-78">
+        <addForeignKeyConstraint baseColumnNames="working_position_id" baseTableName="employee_working_position_history" constraintName="fkrtj4dfgxmm5qxcminnv5w3mgm" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="working_position" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-79">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="member" constraintName="fkamlxknkc3asrfeo11wpmosvjx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-80">
+        <addForeignKeyConstraint baseColumnNames="group_id" baseTableName="member_group" constraintName="fk8h083ll5syxs8b66cisdxvn5r" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="group" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-81">
+        <addForeignKeyConstraint baseColumnNames="rate_id" baseTableName="practice_tags" constraintName="fk7krgy6gdi3lcg8jcnew0ovcms" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="rate" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-82">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="practice_tags" constraintName="fkkxhybc1fix9nbi62engjjns3s" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tag" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-83">
+        <addForeignKeyConstraint baseColumnNames="training_id" baseTableName="scheduled_training" constraintName="fkpyqgi1py23b7xbdbghoedvmy5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="training" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-84">
+        <addForeignKeyConstraint baseColumnNames="training_id" baseTableName="learning_roadmap_trainings" constraintName="fkcn0ujwl8036pjlfdwvufugp38" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="training" validate="true"/>
+    </changeSet>
+    <changeSet author="stefano.fiorenza (generated)" id="1628525065870-85">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+</databaseChangeLog>

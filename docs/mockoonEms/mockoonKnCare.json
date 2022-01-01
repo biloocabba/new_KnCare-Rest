@@ -1,0 +1,113 @@
+{
+    "source": "mockoon:1.14.1",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "",
+                "lastMigration": 15,
+                "name": "KnCare",
+                "endpointPrefix": "",
+                "latency": 0,
+                "port": 9001,
+                "routes": [
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "Generate random body (JSON, text, CSV, etc) with templating",
+                        "method": "post",
+                        "endpoint": "employees",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n    \"content\": [\n        {\n            \"id\": 5,\n            \"pdmId\": null,\n            \"firstName\": null,\n            \"lastName\": null,\n            \"internationalName\": \"John Smith\",\n            \"title\": null,\n            \"email\": null,\n            \"createdAt\": null,\n            \"updatedAt\": null,\n            \"birthDate\": null,\n            \"companyPhone\": null,\n            \"companyMobilePhone\": null,\n            \"gender\": null,\n            \"startDate\": null,\n            \"endDate\": null,\n            \"dateOfLeave\": null,\n            \"hrReference\": null,\n            \"dottedLineManager\": null,\n            \"solidLineManager\": null,\n            \"nationality\": {\n                \"id\": 4,\n                \"iso2\": null,\n                \"iso3\": null,\n                \"name\": \"France\",\n                \"numcode\": 1,\n                \"phonecode\": 2\n            },\n            \"businessUnit\": null,\n            \"costCenter\": null,\n            \"managementGroup\": null,\n            \"workingPosition\": null,\n            \"office\": null,\n            \"businessUnitHistoryRecords\": [],\n            \"costCenterHistoryRecordRecords\": [],\n            \"employeeHistoryRecords\": [],\n            \"groupManagementHistoryRecords\": [],\n            \"workingPositionHistoryRecords\": []\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"sorted\": false,\n            \"unsorted\": true,\n            \"empty\": true\n        },\n        \"offset\": 0,\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"sorted\": false,\n        \"unsorted\": true,\n        \"empty\": true\n    },\n    \"numberOfElements\": 1,\n    \"first\": true,\n    \"empty\": false\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Creates 10 random users, or the amount specified in the 'total' query param",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "practices",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n    \"content\": [\n        {{# repeat 5}}\n        {\n            \"id\": {{ @index }},\n            \"title\": \"test title number {{ @index }}\",\n            \"description\": \"test description number {{ @index }}\",\n            \"content\": \"test content number {{@index }}\"\n        }\n        {{/ repeat}}\n    ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "proxyRemovePrefix": false,
+                "https": false,
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "proxyReqHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "proxyResHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "24abdbb9-8627-4929-a067-e3b030a1e7de",
+		"name": "Kn-Care-App-Giorgi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/v1/groups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/groups/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "First",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/groups",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Group 16\",\n    \"description\": \"Group description\",\n    \"members\": [{\"id\": 1}, {\"id\": 2 } ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/groups without members",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Group 01\",\n    \"description\": \"Group description\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/groups",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/groups/134",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Group 1145\",\n    \"description\": \"Group description\",\n    \"members\": [{\"id\": 1}, {\"id\": 2}, {\"id\": 13 }]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/groups/183",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"183"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/members",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/members/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/members/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"members",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/members",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"onBoardDate\": \"2021-08-04\",\n    \"offBoardDate\": \"2022-08-04\",\n    \"employee\": {\n        \"id\": 1,\n        \"pdmId\": 1001\n    },\n    \"role\": {\n        \"id\":1\n    }\n    \n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/members/2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"onBoardDate\": \"2021-08-04T12:33:34\",\n    \"offBoardDate\": \"2022-08-04T12:33:34\",\n    \"employee\": {\n        \"id\":2\n    },\n    \"role\": {\n        \"id\":1\n    }\n    \n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/members/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"members",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employees?pdmId=1002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					],
+					"query": [
+						{
+							"key": "pdmId",
+							"value": "1002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ngrok.io/api/v1/employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0cd6de3cf8ce.ngrok.io/api/v1/employees",
+					"protocol": "https",
+					"host": [
+						"0cd6de3cf8ce",
+						"ngrok",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mockoon/trainings",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"title\": \"title1\",\n  \"description\": \"desc1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/trainings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"trainings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mockoon/trainings",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"title\": \"SQL\",\n  \"description\": \"Basics of SQL\",\n  \"members\": [],\n  \"learningRoadmaps\": []\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/trainings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"trainings"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: KnCareApp-dev
+
+server:
+  port: 8081
+

@@ -1,0 +1,10 @@
+
+# Generate a ChangeLog From Diff Between Two Databases
+> mvn liquibase:diff
+
+
+
+
+
+# In case Liquibase lock table gets locked (abrupted liquibase run)
+> UPDATE DATABASECHANGELOGLOCK SET LOCKED=false, LOCKGRANTED=null, LOCKEDBY=null where ID=1;

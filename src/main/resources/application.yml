@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: KnCareApp
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/caredb"
+    username: "postgres"
+    password: "postgres"
+
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.PostgreSQLDialect"
+        format_sql: false
+
+  liquibase:
+    enabled: true
+    change-log: "classpath:/liquibase/changelog-master.xml"
+
+  mail:
+    host: 127.0.0.1
+    port: 25
+    username:
+    password:
+    properties.mail.smtp:
+          auth: false
+          starttls.enable: true
+          debug: true
+  mvc:
+    format:
+      date-time: iso
+
+
+server:
+  port: 8080
+
+debug: false
+
+logging:
+  level:
+    liquibase: INFO
+

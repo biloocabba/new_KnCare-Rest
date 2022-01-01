@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: KnCareApp-test
+
+  datasource:
+    url: "jdbc:h2:mem:caretestdb"
+    username: "sa"
+    password:
+    driver-class-name: "org.h2.Driver"

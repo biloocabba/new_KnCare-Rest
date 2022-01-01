@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: KnCareApp
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/caredb-production"
+    username: "postgres"
+    password: "postgres"
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+
+server:
+  port: 8082
+
+debug: false
+
+
